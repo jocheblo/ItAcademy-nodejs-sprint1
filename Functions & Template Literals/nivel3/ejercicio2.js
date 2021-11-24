@@ -1,0 +1,1 @@
+const iife = (nombre => console.log(nombre))('Victor Navarro');
