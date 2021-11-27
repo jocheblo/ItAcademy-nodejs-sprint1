@@ -1,11 +1,18 @@
 "use strict"
 
-const repeaterFunc = () => {
-    for(let i = 0; i < 10; i++) {
-        console.log(i)
-    }
-}
-
-const functionsArr = [repeaterFunc, repeaterFunc, repeaterFunc, repeaterFunc, repeaterFunc, repeaterFunc, repeaterFunc, repeaterFunc, repeaterFunc, repeaterFunc]
-
-functionsArr.forEach(funcion => console.log(funcion()));
+function repeaterFunc() {
+    return new Promise((resolve, reject) => {
+      for(let i = 0; i < 10; i++) {
+          console.log(i);
+      }
+      resolve();
+    });
+ }
+ 
+ let functionsArr = Array.from(Array(10));
+ functionsArr.fill(repeaterFunc);
+ 
+ functionsArr.forEach( funcion => {
+     funcion().then( result => result);
+ });
+ 

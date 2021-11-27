@@ -1,14 +1,13 @@
 "use strict"
 
-function Persona(nombre, apellidos) {
-    this.nombre = nombre;
-    this.apellidos = apellidos;
-}
+class Persona {
 
-//instancia para Victor
-const persona1 = new Persona('Victor','Navarro');
-
-//instancia para Manolete
-const persona2 = new Persona('Manoleta','Bartolino');
-
-console.log(`Las personas son: ${persona1.nombre} y ${persona2.nombre}`);
+    constructor() {
+      if (this.constructor == Persona) {
+        throw new Error("Clase abstracta, no puede ser instanciada");
+      }
+    }
+  
+  }
+  
+  let persona = new Persona();
